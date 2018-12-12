@@ -2,7 +2,7 @@
  * @Author: 王贺
  * @Date:   2018-10-09T21:26:32+08:00
  * @Last modified by:   王贺
- * @Last modified time: 2018-12-12T20:00:04+08:00
+ * @Last modified time: 2018-12-12T22:33:26+08:00
  */
 
 
@@ -376,7 +376,9 @@ https://wangdoc.com/javascript/features/conversion.html
         function P() {}
         var p = new P()
         P.prototype.constructor === P // true
-        p.constructor === P.prototype.constroctor
+        p.constructor === P.prototype.constroctor === P
+
+        如果改变一个对象
 
 11. instanceof 用来判断某个对象是否是一个构造函数的实例。
 instanceof运算符的左边是实例对象，右边是构造函数。它会检查右边构建函数的原型对象（prototype），是否在左边对象的原型链上。
@@ -415,4 +417,15 @@ instanceof运算符的左边是实例对象，右边是构造函数。它会检�
         }
         上面代码中，子类B的print方法先调用父类A的print方法，再部署自己的代码。这就等于继承了父类A的print方法。
 13. 多重继承
-14. 模块 
+14. 模块
+15. Object 对象的相关方法
+    1. 获取一个对象的原型 Object.getPrototypeOf()
+    2. 为参数对象设置原型 Object.setPrototypeOf()
+    3. 以一个对象为原型，返回一个实例对象 Object.create()
+    4. 判断一个实例对象是否是一个参数对象的原型,也就是这个对象是否在参数对象的原型链上
+            var o1 = {}
+            var o2 = Object.create(o1)
+            var o3 = Object.create(o2)
+            o1.isPrototypeOf(o3) //true
+    5. 获取一个对象的原型  Object.prototype.__proto
+    6. hasOwnProperty方法是 JavaScript 之中唯一一个处理对象属性时，不会遍历原型链的方
